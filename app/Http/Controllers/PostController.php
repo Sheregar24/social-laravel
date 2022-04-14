@@ -229,6 +229,16 @@ class PostController extends Controller
         ], Response::HTTP_OK);
     }
 
+    public function destroyfollower(follower_user_id $post)
+    {
+        $post->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Follower deleted successfully'
+        ], Response::HTTP_OK);
+    }
+
     public function likePost(Request $req)
     {
         $logged_user=$req->user_id;
